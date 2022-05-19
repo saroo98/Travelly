@@ -392,7 +392,8 @@ footer ul {
 }
 @media (max-width: 480px) {
   .locations-head h2 {
-    font-size: 5rem;
+    font-size: 350%;
+    margin-top: 2rem;
   }
 }
 @media (max-width: 480px) {
