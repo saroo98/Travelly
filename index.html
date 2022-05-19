@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="discription"
+      content="Travelly is a travelling agency website that helps you pick out your holiday vacation"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="icons/airplane.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Travelly | Travelling Agency</title>
+  </head>
+  <body>
+    <header class="main-head">
+      <nav>
+        <h1 id="logo">Travelly</h1>
+        <ul>
+          <li class="first-li"><a href="#locations">Location</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <h2>Travel Beyond Limits!</h2>
+        <h3>
+          Start your travel at an affordable price with Travelly. <br />
+          Contact us now below:
+        </h3>
+        <button class="btn">Book Now!</button>
+      </section>
+      <section id="locations">
+        <header class="locations-head">
+          <h2>The Perfect Travelling Experience.</h2>
+          <h3>
+            We cover everything for picking the perfect hotel to flight and
+            destination.
+          </h3>
+        </header>
+        <img src="/img/cloud.png" class="cloud moving-cloud-1" />
+        <img src="/img/cloud.png" class="cloud moving-cloud-2" />
+      </section>
+
+      <section id="benefits">
+        <header class="benefits-head">
+          <h2>The Perfect Travel</h2>
+
+          <h3>
+            We cover everything for picking the perfect hotel to flight and
+            destination.
+          </h3>
+        </header>
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">
+              <img id="route" src="/icons/route-solid.svg" alt="" />
+            </div>
+            <h4>Travel</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint sed
+              deleniti modi ipsa blanditiis incidunt!
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <img src="/icons/bed-solid.svg" alt="" />
+            </div>
+            <h4>Hotel</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint sed
+              deleniti modi ipsa blanditiis incidunt!
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <img src="/icons/plane-departure-solid.svg" alt="" />
+            </div>
+            <h4>Fly</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint sed
+              deleniti modi ipsa blanditiis incidunt!
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="form-wrapper">
+          <header class="form-head">
+            <h2>Contact Us</h2>
+          </header>
+          <form
+            id="my-form"
+            action="https://formspree.io/f/mlezpkve"
+            method="POST"
+          >
+            <label>Email:</label>
+            <input class="email-form" type="email" name="email" />
+            <label class="message">Message:</label>
+            <textarea class="message-text" type="text" name="message">
+            </textarea>
+            <button class="btn">Submit</button>
+            <p id="my-form-status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-wrapper">
+        <h5>Travelly &copy;</h5>
+        <ul>
+          <li>
+            <a href="#"><img src="/icons/twitter.svg" alt="" /></a>
+          </li>
+          <li class="middle-img">
+            <a href="#"><img src="/icons/youtube.svg" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="/icons/instagram.svg" alt="" /></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <script>
+      var form = document.getElementById("my-form");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.innerHTML = "Thanks for your submission!";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.innerHTML = data["errors"]
+                    .map((error) => error["message"])
+                    .join(", ");
+                } else {
+                  status.innerHTML =
+                    "Oops! There was a problem submitting your form";
+                }
+              });
+            }
+          })
+          .catch((error) => {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          });
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script>
+  </body>
+</html>
