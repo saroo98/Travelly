@@ -115,6 +115,10 @@ nav ul {
   font-weight: 300;
 }
 
+#btn-book {
+  margin-bottom: 3rem;
+}
+
 /* Locations Section */
 #locations {
   min-height: 100vh;
