@@ -258,8 +258,7 @@ nav ul {
   background: rgb(44, 38, 80, 0.5);
   margin: auto;
   color: white;
-  border-top-right-radius: 10rem;
-  border-bottom-left-radius: 10rem;
+  border-radius: 2rem;
 }
 
 .email-form {
