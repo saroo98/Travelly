@@ -270,22 +270,6 @@ nav ul {
   width: 90%;
 }
 
-/* .upload-form input {
-  background: white;
-  width: 90%;
-  color: black;
-  font-size: 1.5rem;
-} */
-/* .upload-form input[type="file"]::file-selector-button {
-  border: 0px;
-  text-align: center;
-  padding: 0.2em 0.4em;
-  border-radius: 0.2em;
-  background: rgb(255, 255, 255);
-  transition: 1s;
-  color: black;
-} */
-
 input {
   border-radius: 1rem;
   padding: 0.5rem 2rem;
